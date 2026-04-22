@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mindset2Excel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FAF8F5;
+            color: #5C4A32;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #FAF8F5;
+            border-bottom: 1px solid #E8DDD0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1290px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img { height: 75px; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+                nav a,
+        nav a:link,
+        nav a:visited,
+        nav a:focus,
+        nav a:active {
+            text-decoration: none;
+            color: #5C4A32;
+            font-weight: 500;
+            font-size: 15px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        nav a:hover {
+            color: #D4521A;
+            border-bottom: 3px solid #D4521A;
+            text-decoration: none;
+        }
+
+        nav a.active {
+            color: #D4521A;
+            border-bottom: 3px solid #D4521A;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(91,138,111,0.12) 0%, rgba(250,248,245,0.98) 100%);
+            padding: 60px 2rem;
+            text-align: center;
+            border-bottom: 3px solid #5B8A6F;
+        }
+
+        .page-hero h1 {
+            font-size: 44px;
+            color: #1B3A5C;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .page-hero p {
+            font-size: 19px;
+            color: #5C4A32;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* FEATURED POST */
+        .featured-section {
+            padding: 70px 2rem 40px;
+            background: #FAF8F5;
+        }
+
+        .featured-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .featured-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #D4521A;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .featured-post {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 50px;
+            border: 1px solid #E8DDD0;
+            border-top: 4px solid #D4521A;
+            margin-bottom: 60px;
+        }
+
+        .featured-post h2 {
+            font-size: 32px;
+            color: #1B3A5C;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .featured-post .post-meta {
+            font-size: 14px;
+            color: #2C7873;
+            margin-bottom: 20px;
+        }
+
+        .featured-post .post-excerpt {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #5C4A32;
+            margin-bottom: 25px;
+        }
+
+        .featured-post .post-excerpt strong { color: #1B3A5C; }
+
+        .read-more {
+            color: #D4521A;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover { color: #D4521A; }
+
+        /* BLOG GRID */
+        .blog-section {
+            padding: 0 2rem 70px;
+            background: #FAF8F5;
+        }
+
+        .blog-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2C7873;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .blog-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #E8DDD0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(27,58,92,0.1);
+        }
+
+        .blog-card.teal-top { border-top: 3px solid #2C7873; }
+        .blog-card.navy-top { border-top: 3px solid #1B3A5C; }
+        .blog-card.sage-top { border-top: 3px solid #5B8A6F; }
+
+        .blog-card .card-tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: #2C7873;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .blog-card h3 {
+            font-size: 19px;
+            color: #1B3A5C;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #5C4A32;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-card .card-meta {
+            font-size: 13px;
+            color: #2C7873;
+            margin-bottom: 15px;
+        }
+
+        .blog-card .read-more {
+            font-size: 15px;
+        }
+
+        /* NEWSLETTER BANNER */
+        .newsletter-banner {
+            background: linear-gradient(135deg, #1B3A5C 0%, #2C7873 100%);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .newsletter-banner h3 {
+            font-size: 26px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-banner p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .newsletter-banner a {
+            background: #D4521A;
+            color: #FFFFFF;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .newsletter-banner a:hover {
+            background: #D4521A;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #2D2D2D;
+            padding: 40px 2rem;
+            text-align: center;
+            color: #999999;
+        }
+
+        @media (max-width: 968px) {
+            .blog-grid { grid-template-columns: 1fr 1fr; }
+            .page-hero h1 { font-size: 32px; }
+            .featured-post { padding: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://mindset2excel.com/wp-content/uploads/2024/10/mindsetlogotrans-300x90.png" alt="Mindset2Excel">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="m2e_about_v7.0.4.html">About</a></li>
+                    <li><a href="m2e_blog_v7.0.4.html" class="active">Blog</a></li>
+                    <li><a href="m2e_cadence_v7.2.4.html">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <h1>Perspectives on Clarity</h1>
+        <p>Thinking tools and honest reflections for professionals navigating what's next.</p>
+    </div>
+
+    <!-- FEATURED POST -->
+    <section class="featured-section">
+        <div class="featured-container">
+
+            <div class="featured-label">Featured Post</div>
+            <div class="featured-post">
+                <h2>Are You on a Treadmill or Running Out in the Open?</h2>
+                <div class="post-meta">By Anand Nagarajan &nbsp;·&nbsp; Career Clarity</div>
+                <p class="post-excerpt">You wake up. You check your email. You go to meetings. You finish tasks. You close your laptop. Every day feels productive — but six months later, when you look back, something feels off. <strong>You've been moving. But have you been going anywhere?</strong></p>
+                <p class="post-excerpt">The treadmill gives you the sensation of progress. Your calendar is full. Your to-do list gets checked off. But at the end of the year, you're in the exact same place. Running in the open is different — you're moving toward something, and you can feel the ground shift beneath you.</p>
+                <a href="#" class="read-more">Read the full article →</a>
+            </div>
+
+            <!-- BLOG GRID -->
+            <div class="section-label">More Articles</div>
+            <div class="blog-grid">
+
+                <div class="blog-card teal-top">
+                    <div class="card-tag">Mindset</div>
+                    <h3>When the Drive Fades After Success</h3>
+                    <div class="card-meta">By Anand Nagarajan</div>
+                    <p>You hit the goal. You got the promotion. You built the thing. And then — nothing. The drive that carried you here has gone quiet. Here's what's actually happening and how to move forward.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+
+                <div class="blog-card navy-top">
+                    <div class="card-tag">Decision Making</div>
+                    <h3>Letting Go Isn't Quitting — It's Clearing Space</h3>
+                    <div class="card-meta">By Anand Nagarajan</div>
+                    <p>We've been taught that persistence is always a virtue. But sometimes holding on is the thing that's keeping you stuck. How to tell the difference — and what clarity looks like on the other side.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+
+                <div class="blog-card sage-top">
+                    <div class="card-tag">Career Transitions</div>
+                    <h3>The Question You're Avoiding Is Usually the Right One</h3>
+                    <div class="card-meta">By Anand Nagarajan</div>
+                    <p>Most people don't lack self-awareness. They lack the courage to act on what they already know. If there's a question you keep circling back to, it's worth asking why you haven't answered it yet.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+
+            </div>
+
+            <!-- NEWSLETTER BANNER -->
+            <div class="newsletter-banner">
+                <h3>New articles every week.</h3>
+                <p>Honest thinking for professionals who already know something needs to change.</p>
+                <a href="m2e_cadence_v7.2.4.html">Start with one session</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © 2026 - Mindset2Excel</p>
+        <p style="margin-top: 15px; font-size: 14px; color: #D4521A;">Blog Page v7.0.4 - Phase 1 Validation</p>
+    </footer>
+
+    <script>
+    (function() {
+        var currentPage = window.location.pathname.split('/').pop();
+        var navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(function(link) {
+            link.classList.remove('active');
+            var linkPage = link.getAttribute('href').split('/').pop();
+            if (currentPage === linkPage) {
+                link.classList.add('active');
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

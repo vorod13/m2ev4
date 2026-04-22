@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindset2Excel - Clarity Through Structured Thinking</title>
+    <style>
+        :root {
+            --theme-palette-color-1: #D4521A;
+            --theme-palette-color-7: #FAF8F5;
+            --theme-palette-color-8: #FFF8EE;
+            --theme-text-color: #5C4A32;
+            --theme-headings-color: #2D2D2D;
+            --theme-button-background: #D4521A;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FAF8F5;
+            color: var(--theme-text-color);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #FAF8F5;
+            border-bottom: 1px solid #E8DDD0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            max-width: 1290px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo img { height: 75px; }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        nav a,
+        nav a:visited,
+        nav a:focus,
+        nav a:active {
+            text-decoration: none;
+            color: #5C4A32;
+            font-weight: 500;
+            font-size: 15px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #D4521A;
+            border-bottom: 3px solid #D4521A;
+        }
+
+        nav a.active {
+            color: #D4521A;
+            border-bottom: 3px solid #D4521A;
+            font-weight: 600;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(232,98,42,0.1) 0%, rgba(250,248,245,0.95) 100%);
+            padding: 80px 2rem;
+            border-bottom: 2px solid #D4521A;
+        }
+
+        .hero-container {
+            max-width: 1290px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: var(--theme-headings-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--theme-button-background);
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: #66BEC4;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--theme-headings-color);
+            border: 2px solid var(--theme-palette-color-1);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(70,163,151,0.1);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .recognition-section {
+            background: var(--theme-palette-color-8);
+            padding: 60px 2rem;
+            text-align: center;
+        }
+
+        .recognition-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .recognition-container > p {
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .anand-profile {
+            background: var(--theme-palette-color-7);
+            padding: 75px 2rem;
+        }
+
+        .anand-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .anand-photo {
+            flex-shrink: 0;
+        }
+
+        .anand-photo img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--theme-palette-color-1);
+        }
+
+        .anand-content h3 {
+            color: var(--theme-headings-color);
+            font-size: 35px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .anand-content p {
+            color: var(--theme-text-color);
+            line-height: 2;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .anand-content a {
+            color: var(--theme-palette-color-1);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .anand-content a:hover {
+            color: #66BEC4;
+        }
+
+        .how-it-works {
+            background: linear-gradient(135deg, rgba(232,98,42,0.1) 0%, rgba(10,28,43,0.95) 50%, rgba(232,98,42,0.1) 100%);
+            padding: 60px 2rem;
+        }
+
+        .how-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-container h2 {
+            font-size: 36px;
+            color: var(--theme-headings-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .how-container > p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .how-container .cta-center {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .philosophy-box {
+            background: var(--theme-palette-color-7);
+            padding: 40px 2rem;
+        }
+
+        .philosophy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(70,163,151,0.1);
+            border-left: 4px solid var(--theme-palette-color-1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .philosophy-container h3 {
+            color: var(--theme-palette-color-1);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .philosophy-container p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .testimonials-section {
+            background: var(--theme-palette-color-8);
+            padding: 60px 2rem;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonials-container h2 {
+            font-size: 36px;
+            color: var(--theme-headings-color);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--theme-headings-color);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-size: 16px;
+            color: var(--theme-palette-color-1);
+            font-weight: 600;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #21282E;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: var(--theme-palette-color-1);
+        }
+        
+        footer {
+            background-color: #2D2D2D;
+            padding: 40px 2rem;
+            text-align: center;
+            color: #5C4A32;
+        }
+
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quiz-modal.active {
+            display: flex;
+        }
+
+        .quiz-container {
+            background: var(--theme-palette-color-8);
+            border: 2px solid var(--theme-palette-color-1);
+            border-radius: 12px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .quiz-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--theme-text-color);
+            font-size: 28px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .quiz-close:hover {
+            color: var(--theme-headings-color);
+        }
+
+        .quiz-screen {
+            display: none;
+        }
+
+        .quiz-screen.active {
+            display: block;
+        }
+
+        .quiz-intro {
+            text-align: center;
+        }
+
+        .quiz-intro h3 {
+            color: var(--theme-headings-color);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .quiz-intro .btn-primary {
+            font-size: 18px;
+            padding: 18px 40px;
+        }
+
+        .quiz-question h3 {
+            color: var(--theme-headings-color);
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-progress {
+            text-align: center;
+            color: var(--theme-text-color);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: var(--theme-palette-color-7);
+            border: 2px solid #21282E;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--theme-palette-color-1);
+            background: rgba(70,163,151,0.1);
+        }
+
+        .quiz-option-letter {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--theme-palette-color-1);
+            color: var(--theme-palette-color-7);
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .quiz-option-text {
+            color: var(--theme-headings-color);
+            font-size: 16px;
+        }
+
+        .quiz-result {
+            display: none;
+        }
+
+        .quiz-result.active {
+            display: block;
+        }
+
+        .quiz-result h3 {
+            color: var(--theme-palette-color-1);
+            font-size: 32px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quiz-result p {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .quiz-result p strong {
+            color: var(--theme-headings-color);
+        }
+
+        .quiz-result .result-cta {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #21282E;
+        }
+
+        .quiz-result .result-cta p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .anand-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .anand-content li {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .quiz-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://mindset2excel.com/wp-content/uploads/2024/10/mindsetlogotrans-300x90.png" alt="Mindset2Excel">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="m2e_about_v7.0.4.html">About</a></li>
+                    <li><a href="m2e_blog_v7.0.4.html">Blog</a></li>
+                    <li><a href="m2e_cadence_v7.2.4.html">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Everything looks fine.<br>So why doesn't it feel right?</h1>
+                <p>You've built a successful career, but something feels off. Get clear on what comes next.</p>
+                <div class="hero-buttons">
+                    <a href="m2e_cadence_v7.2.4.html" class="btn-primary">Start with one session</a>
+                    <button class="btn-secondary" id="quizButton">Take the diagnostic</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 480px; width: 100%;">
+                    <!-- Outer circle background -->
+                    <circle cx="250" cy="250" r="240" fill="#FFF8EE" opacity="0.6"/>
+                    
+                    <!-- Large arc rings suggesting clarity/focus -->
+                    <circle cx="250" cy="250" r="200" fill="none" stroke="#2C7873" stroke-width="2" opacity="0.2"/>
+                    <circle cx="250" cy="250" r="160" fill="none" stroke="#2C7873" stroke-width="2" opacity="0.3"/>
+                    <circle cx="250" cy="250" r="120" fill="none" stroke="#2C7873" stroke-width="2" opacity="0.4"/>
+
+                    <!-- Central solid circle -->
+                    <circle cx="250" cy="250" r="90" fill="#1B3A5C" opacity="0.08"/>
+                    <circle cx="250" cy="250" r="70" fill="#1B3A5C" opacity="0.1"/>
+
+                    <!-- Person silhouette - seated, thinking/reflecting -->
+                    <!-- Body -->
+                    <ellipse cx="250" cy="310" rx="38" ry="22" fill="#1B3A5C" opacity="0.7"/>
+                    <!-- Torso -->
+                    <rect x="228" y="268" width="44" height="50" rx="8" fill="#1B3A5C" opacity="0.75"/>
+                    <!-- Head -->
+                    <circle cx="250" cy="250" r="28" fill="#2C7873" opacity="0.85"/>
+                    <!-- Chin/neck -->
+                    <rect x="240" y="272" width="20" height="10" fill="#2C7873" opacity="0.7"/>
+
+                    <!-- Thought/clarity lines radiating outward -->
+                    <line x1="250" y1="215" x2="250" y2="185" stroke="#D4521A" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                    <line x1="272" y1="222" x2="292" y2="202" stroke="#D4521A" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+                    <line x1="228" y1="222" x2="208" y2="202" stroke="#D4521A" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+                    <line x1="280" y1="240" x2="310" y2="230" stroke="#D4521A" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                    <line x1="220" y1="240" x2="190" y2="230" stroke="#D4521A" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+
+                    <!-- Small dots at tips of rays -->
+                    <circle cx="250" cy="182" r="5" fill="#D4521A" opacity="0.8"/>
+                    <circle cx="295" cy="199" r="4" fill="#D4521A" opacity="0.7"/>
+                    <circle cx="205" cy="199" r="4" fill="#D4521A" opacity="0.7"/>
+                    <circle cx="313" cy="228" r="3" fill="#D4521A" opacity="0.5"/>
+                    <circle cx="187" cy="228" r="3" fill="#D4521A" opacity="0.5"/>
+
+                    <!-- Arrow pointing up-right suggesting forward momentum -->
+                    <path d="M 310 340 L 370 280 L 355 282 M 370 280 L 368 295" stroke="#5B8A6F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+
+                    <!-- Small accent dots scattered -->
+                    <circle cx="140" cy="180" r="6" fill="#5B8A6F" opacity="0.3"/>
+                    <circle cx="370" cy="160" r="4" fill="#2C7873" opacity="0.3"/>
+                    <circle cx="390" cy="320" r="8" fill="#D4521A" opacity="0.15"/>
+                    <circle cx="120" cy="340" r="5" fill="#1B3A5C" opacity="0.2"/>
+                    <circle cx="160" cy="120" r="4" fill="#D4521A" opacity="0.2"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT AREA -->
+    <div style="background: #FAF8F5; padding: 80px 0;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
+
+            <!-- QUOTE BANNER - Sage Green gradient -->
+            <div style="background: linear-gradient(135deg, rgba(91,138,111,0.2) 0%, rgba(250,248,245,0.97) 50%, rgba(91,138,111,0.15) 100%); border-radius: 12px; padding: 30px 45px; border: 1px solid rgba(91,138,111,0.3); display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-bottom: 30px;">
+                <p style="font-size: 18px; line-height: 1.7; color: #2D2D2D; font-style: italic; margin: 0;">
+                    You already know something is off. You've just been living with it without making a clear move. This isn't about more advice. <strong style="color: #1B3A5C; font-style: italic;">It's about seeing your situation clearly so you can decide what comes next.</strong>
+                </p>
+                <a href="m2e_cadence_v7.2.4.html" style="background: #D4521A; color: #FFFFFF; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; white-space: nowrap; flex-shrink: 0;">Start with one session</a>
+            </div>
+
+            <!-- ROW 1: ANAND + PHILOSOPHY SIDE BY SIDE -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; align-items: stretch;">
+
+                <!-- ANAND PROFILE CARD - Teal accent -->
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 35px; border: 1px solid rgba(44,120,115,0.25); border-top: 4px solid #2C7873; display: flex; flex-direction: column; justify-content: flex-start;">
+                    <div style="display: flex; align-items: flex-start; gap: 30px; margin-bottom: 20px;">
+                        <img src="https://mindset2excel.com/wp-content/uploads/2025/08/Anand.png" alt="Anand Nagarajan" style="width: 285px; height: 285px; border-radius: 50%; object-fit: cover; border: 4px solid #2C7873; flex-shrink: 0;">
+                        <div style="padding-top: 6px;">
+                            <h3 style="color: #1B3A5C; font-size: 30px; margin-bottom: 14px; font-weight: 700;">Anand Nagarajan</h3>
+                            <p style="font-size: 17px; line-height: 1.9; color: #5C4A32; margin-bottom: 8px;">
+                                Founder, Mindset2Excel<br>
+                                ICF Certified Coach
+                            </p>
+                            <p style="font-size: 15px; line-height: 1.7; color: #2C7873; font-style: italic; margin-bottom: 20px;">"Confidence is not a prerequisite, it's an outcome of your actions."</p>
+                            <a href="m2e_about_v7.0.4.html" style="color: #2C7873; text-decoration: none; font-weight: 600; font-size: 16px;">Learn more about my approach →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHILOSOPHY CARD - Navy accent -->
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 35px; border: 1px solid rgba(27,58,92,0.2); border-top: 4px solid #1B3A5C; display: flex; flex-direction: column; justify-content: flex-start;">
+                    <h3 style="color: #1B3A5C; font-size: 30px; margin-bottom: 20px; font-weight: 700;">This Isn't Traditional Coaching</h3>
+                    <p style="font-size: 17px; line-height: 1.9; color: #5C4A32; margin: 0;">
+                        No advice.<br>
+                        No motivational speeches.<br>
+                        No generic plans.<br><br>
+                        Just clear, structured thinking. All grounded in decisions I've made through my own transitions and pivots so you can see your situation clearly, make a decision, and move forward.<br><br>
+                        And when you're ready to move, I work with you as a copilot, helping you stay grounded and keep moving forward.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ROW 2: HOW THIS WORKS - Dark navy card with light text -->
+            <div style="background: linear-gradient(135deg, #1B3A5C 0%, #2C7873 100%); border-radius: 12px; padding: 50px 40px; margin-bottom: 40px;">
+                
+                <h2 style="color: #FFFFFF; font-size: 34px; font-weight: 700; text-align: center; margin-bottom: 40px;">How this works</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin-bottom: 40px;">
+
+                    <!-- CARD 1 -->
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 30px; border-top: 3px solid #D4521A;">
+                        <h4 style="color: #FFFFFF; font-size: 18px; font-weight: 700; margin-bottom: 15px;">Book your first session</h4>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.7; margin: 0;">Choose a plan, answer a few quick questions, and schedule your session. Nothing gets charged until after we meet.</p>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 30px; border-top: 3px solid #D4521A;">
+                        <h4 style="color: #FFFFFF; font-size: 18px; font-weight: 700; margin-bottom: 15px;">A real working session</h4>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.7; margin: 0;">We meet and work through your situation. <strong style="color: #FFFFFF;">This is not a discovery call, it is a real working session.</strong> You leave with clarity, not a sales pitch.</p>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 30px; border-top: 3px solid #D4521A;">
+                        <h4 style="color: #FFFFFF; font-size: 18px; font-weight: 700; margin-bottom: 15px;">You decide what's next</h4>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.7; margin: 0;">Cancel within 48 hours at <strong style="color: #FFFFFF;">no charge</strong>. No pressure. No commitment. And if you continue, I stay on as your copilot, helping you stay grounded and keep moving forward.</p>
+                    </div>
+
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="m2e_cadence_v7.2.4.html" style="background: #D4521A; color: #FFFFFF; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 17px; display: inline-block;">Start with one session</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="testimonials-section" style="background: rgba(91,138,111,0.08);">
+        <div class="testimonials-container">
+            <h2 style="color: #1B3A5C;">What People Are Saying</h2>
+            <p style="text-align: center; margin-top: 10px; margin-bottom: 30px; font-size: 15px;">
+                <a href="m2e_about_v7.0.4.html" style="color: #2C7873; text-decoration: none; font-weight: 600;">Meet Anand →</a>
+            </p>
+            
+            <div class="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="testimonial-card">
+                        <blockquote>"I had been feeling stuck in both my career and my sense of identity. Anand brings experience that speaks to both in a realistic, relatable way. The shift I've experienced has been noticeable, and I'm genuinely grateful for the perspective he brought."</blockquote>
+                        <p class="testimonial-author">&mdash; J.S., Entrepreneur, California</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"Anand helped me go from erratic, anxiety-driven thinking and an inability to make decisions, to clear, actionable thought patterns. I now have real clarity on what I want and how to pursue it."</blockquote>
+                        <p class="testimonial-author">&mdash; D.K., Systems Architect, California</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"Working with Anand came at just the right time. He helped me reconnect with what truly matters to me and gave me the tools to face my fears with confidence. He doesn't just mentor, he transforms."</blockquote>
+                        <p class="testimonial-author">&mdash; S.R., Principal Engineering Manager, California</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"Anand helped me shift from uncertainty to clarity. I uncovered strengths I hadn't fully recognized, stepped back into my founder identity, and started moving forward with real momentum."</blockquote>
+                        <p class="testimonial-author">&mdash; C.M., Marketing Leader and Entrepreneur, Canada</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-container">
+            <button class="quiz-close" id="closeQuizBtn">&times;</button>
+            
+            <!-- INTRO SCREEN -->
+            <div class="quiz-screen quiz-intro active" id="intro">
+                <h3>What's really holding you back right now?</h3>
+                <p>This takes about 2 minutes.<br>Don't overthink it. Go with your first instinct.</p>
+                <button class="btn-primary" id="startQuizBtn">Start Quiz</button>
+            </div>
+
+            <!-- QUESTION 1 -->
+            <div class="quiz-screen quiz-question" id="q1">
+                <div class="quiz-progress">Question 1 of 6</div>
+                <h3>Right now, what feels most off?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-question="1" data-answer="A">
+                        <span class="quiz-option-letter">A</span>
+                        <span class="quiz-option-text">Things look fine, but something doesn't feel right</span>
+                    </div>
+                    <div class="quiz-option" data-question="1" data-answer="B">
+                        <span class="quiz-option-letter">B</span>
+                        <span class="quiz-option-text">Everything feels like too much</span>
+                    </div>
+                    <div class="quiz-option" data-question="1" data-answer="C">
+                        <span class="quiz-option-letter">C</span>
+                        <span class="quiz-option-text">I know what I should do, but I'm not doing it</span>
+                    </div>
+                    <div class="quiz-option" data-question="1" data-answer="D">
+                        <span class="quiz-option-letter">D</span>
+                        <span class="quiz-option-text">I don't know what to do next</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 2 -->
+            <div class="quiz-screen quiz-question" id="q2">
+                <div class="quiz-progress">Question 2 of 6</div>
+                <h3>What's been hardest lately?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-question="2" data-answer="A">
+                        <span class="quiz-option-letter">A</span>
+                        <span class="quiz-option-text">Making a clear decision</span>
+                    </div>
+                    <div class="quiz-option" data-question="2" data-answer="B">
+                        <span class="quiz-option-letter">B</span>
+                        <span class="quiz-option-text">Keeping up with everything</span>
+                    </div>
+                    <div class="quiz-option" data-question="2" data-answer="C">
+                        <span class="quiz-option-letter">C</span>
+                        <span class="quiz-option-text">Following through consistently</span>
+                    </div>
+                    <div class="quiz-option" data-question="2" data-answer="D">
+                        <span class="quiz-option-letter">D</span>
+                        <span class="quiz-option-text">Figuring out what I actually want</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 3 -->
+            <div class="quiz-screen quiz-question" id="q3">
+                <div class="quiz-progress">Question 3 of 6</div>
+                <h3>How would you describe your current situation?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-question="3" data-answer="A">
+                        <span class="quiz-option-letter">A</span>
+                        <span class="quiz-option-text">Stable, but unfulfilling</span>
+                    </div>
+                    <div class="quiz-option" data-question="3" data-answer="B">
+                        <span class="quiz-option-letter">B</span>
+                        <span class="quiz-option-text">Busy and draining</span>
+                    </div>
+                    <div class="quiz-option" data-question="3" data-answer="C">
+                        <span class="quiz-option-letter">C</span>
+                        <span class="quiz-option-text">Starting and stopping often</span>
+                    </div>
+                    <div class="quiz-option" data-question="3" data-answer="D">
+                        <span class="quiz-option-letter">D</span>
+                        <span class="quiz-option-text">Unclear and overwhelming</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 4 -->
+            <div class="quiz-screen quiz-question" id="q4">
+                <div class="quiz-progress">Question 4 of 6</div>
+                <h3>When you try to move forward, what happens?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-question="4" data-answer="A">
+                        <span class="quiz-option-letter">A</span>
+                        <span class="quiz-option-text">I overthink and delay</span>
+                    </div>
+                    <div class="quiz-option" data-question="4" data-answer="B">
+                        <span class="quiz-option-letter">B</span>
+                        <span class="quiz-option-text">I feel exhausted before I start</span>
+                    </div>
+                    <div class="quiz-option" data-question="4" data-answer="C">
+                        <span class="quiz-option-letter">C</span>
+                        <span class="quiz-option-text">I start, but don't sustain it</span>
+                    </div>
+                    <div class="quiz-option" data-question="4" data-answer="D">
+                        <span class="quiz-option-letter">D</span>
+                        <span class="quiz-option-text">I don't know where to begin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 5 -->
+            <div class="quiz-screen quiz-question" id="q5">
+                <div class="quiz-progress">Question 5 of 6</div>
+                <h3>What frustrates you the most?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-question="5" data-answer="A">
+                        <span class="quiz-option-letter">A</span>
+                        <span class="quiz-option-text">I'm doing things that don't feel meaningful anymore</span>
+                    </div>
+                    <div class="quiz-option" data-question="5" data-answer="B">
+                        <span class="quiz-option-letter">B</span>
+                        <span class="quiz-option-text">I feel constantly drained</span>
+                    </div>
+                    <div class="quiz-option" data-question="5" data-answer="C">
+                        <span class="quiz-option-letter">C</span>
+                        <span class="quiz-option-text">I'm not following through on what I start</span>
+                    </div>
+                    <div class="quiz-option" data-question="5" data-answer="D">
+                        <span class="quiz-option-letter">D</span>
+                        <span class="quiz-option-text">I don't trust my decisions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 6 -->
+            <div class="quiz-screen quiz-question" id="q6">
+                <div class="quiz-progress">Question 6 of 6</div>
+                <h3>What do you want most right now?</h3>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-question="6" data-answer="A">
+                        <span class="quiz-option-letter">A</span>
+                        <span class="quiz-option-text">Clarity on what to do next</span>
+                    </div>
+                    <div class="quiz-option" data-question="6" data-answer="B">
+                        <span class="quiz-option-letter">B</span>
+                        <span class="quiz-option-text">Space and control over my time and energy</span>
+                    </div>
+                    <div class="quiz-option" data-question="6" data-answer="C">
+                        <span class="quiz-option-letter">C</span>
+                        <span class="quiz-option-text">The ability to take consistent action</span>
+                    </div>
+                    <div class="quiz-option" data-question="6" data-answer="D">
+                        <span class="quiz-option-letter">D</span>
+                        <span class="quiz-option-text">Confidence in my direction</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESULT: MISALIGNMENT -->
+            <div class="quiz-result" id="result-misalignment">
+                <h3>You're not stuck. You're misaligned.</h3>
+                
+                <p>On paper, things might look fine. You're capable, you're doing well, you're moving forward but something doesn't feel right. The effort is there, the meaning isn't.</p>
+                
+                <p><strong>This usually shows up as:</strong> Doing work that doesn't fully engage you, feeling under-recognized or undervalued, and questioning if this is what you want long-term.</p>
+                
+                <p><strong>What's actually happening:</strong> You've likely outgrown something, the role, the environment, or what used to matter to you. Nothing is obviously broken, which is exactly why it's hard to act.</p>
+                
+                <p><strong>What helps:</strong> Not starting over, but getting clear on what matters to you now, what you want more of, and what you're no longer willing to tolerate.</p>
+                
+                <div class="result-cta">
+                    <p style="font-weight: 600;">No commitment. Just clarity first.</p>
+                    <a href="m2e_cadence_v7.2.4.html" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">Start with one session</a>
+                </div>
+            </div>
+
+            <!-- RESULT: OVERWHELM -->
+            <div class="quiz-result" id="result-overwhelm">
+                <h3>You're not failing. You're overloaded.</h3>
+                
+                <p>This isn't about ability. It's too much. Too many demands, too many expectations, not enough space to think. When everything feels urgent, you lose the ability to think clearly.</p>
+                
+                <p><strong>This usually shows up as:</strong> Constant busyness without real progress, mental fatigue and decision exhaustion, and feeling like you're always behind.</p>
+                
+                <p><strong>What's actually happening:</strong> You're operating without enough space, prioritization, or recovery. The system is overloaded, which is why nothing feels sustainable.</p>
+                
+                <p><strong>What helps:</strong> Not doing more, but stepping back enough to reprioritize what actually matters, reduce unnecessary load, and regain control of your time and energy.</p>
+                
+                <div class="result-cta">
+                    <p style="font-weight: 600;">No commitment. Just clarity first.</p>
+                    <a href="m2e_cadence_v7.2.4.html" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">Start with one session</a>
+                </div>
+            </div>
+
+            <!-- RESULT: AVOIDANCE -->
+            <div class="quiz-result" id="result-avoidance">
+                <h3>You're not confused. You're avoiding.</h3>
+                
+                <p>You already have a sense of what needs to happen, but it's not translating into action. You think about it, you plan, you revisit it, but you're not moving consistently.</p>
+                
+                <p><strong>This usually shows up as:</strong> Starting and stopping repeatedly, waiting for the "right time," and knowing what to do but not doing it.</p>
+                
+                <p><strong>What's actually happening:</strong> This isn't about discipline. It's usually fear of consequences, uncertainty about outcomes, or lack of clarity on the immediate next step.</p>
+                
+                <p><strong>What helps:</strong> Turning thinking into movement through clear, immediate actions, smaller low-risk steps, and momentum over perfection.</p>
+                
+                <div class="result-cta">
+                    <p style="font-weight: 600;">No commitment. Just clarity first.</p>
+                    <a href="m2e_cadence_v7.2.4.html" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">Start with one session</a>
+                </div>
+            </div>
+
+            <!-- RESULT: DECISION FOG -->
+            <div class="quiz-result" id="result-decisionfog">
+                <h3>You're not behind. You're in decision fog.</h3>
+                
+                <p>Right now, the hardest part is you don't know where to start. Everything feels possible, which makes it hard to move in any direction.</p>
+                
+                <p><strong>This usually shows up as:</strong> Overthinking different paths, doubting your own decisions, and feeling stuck before you begin.</p>
+                
+                <p><strong>What's actually happening:</strong> You're not lacking options. You're lacking clarity on what matters most right now, which makes every choice feel equally uncertain.</p>
+                
+                <p><strong>What helps:</strong> Not rushing into action, but first understanding what actually matters to you, narrowing your focus, and defining a direction that feels real.</p>
+                
+                <div class="result-cta">
+                    <p style="font-weight: 600;">No commitment. Just clarity first.</p>
+                    <a href="m2e_cadence_v7.2.4.html" class="btn-primary" style="font-size: 18px; padding: 18px 40px;">Start with one session</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL CTA SECTION -->
+    <div style="background: #1B3A5C; padding: 60px 2rem; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p style="font-size: 22px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 30px; font-style: italic;">The clarity you're looking for starts with one conversation.</p>
+            <a href="m2e_cadence_v7.2.4.html" style="background: #D4521A; color: #FFFFFF; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 18px; display: inline-block; transition: all 0.3s;">Start with one session</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © 2026 - Mindset2Excel</p>
+        <p style="margin-top: 20px; font-size: 14px; color: #D4521A;">
+            Homepage v7.5.5 - Phase 1 Validation
+        </p>
+    </footer>
+
+    <script>
+        // Auto-detect active nav link
+        (function() {
+            var currentPage = window.location.pathname.split('/').pop();
+            var navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                var linkPage = link.getAttribute('href').split('/').pop();
+                if (currentPage === linkPage || 
+                    (currentPage === '' && linkPage === 'index.html') ||
+                    (currentPage.indexOf('homepage') > -1 && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        })();
+        (function() {
+            var answers = {};
+            var currentScreen = 'intro';
+            
+            var quizButton = document.getElementById('quizButton');
+            var quizModal = document.getElementById('quizModal');
+            var closeBtn = document.getElementById('closeQuizBtn');
+            var startQuizBtn = document.getElementById('startQuizBtn');
+            var quizOptions = document.querySelectorAll('.quiz-option');
+            
+            function openQuiz() {
+                quizModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                showScreen('intro');
+            }
+            
+            function closeQuiz() {
+                quizModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                resetQuiz();
+            }
+            
+            function resetQuiz() {
+                answers = {};
+                currentScreen = 'intro';
+                document.querySelectorAll('.quiz-screen').forEach(function(screen) {
+                    screen.classList.remove('active');
+                });
+                document.getElementById('intro').classList.add('active');
+            }
+            
+            function showScreen(screenId) {
+                document.querySelectorAll('.quiz-screen').forEach(function(screen) {
+                    screen.classList.remove('active');
+                });
+                document.getElementById(screenId).classList.add('active');
+                currentScreen = screenId;
+            }
+            
+            function selectAnswer(questionNum, answer) {
+                answers[questionNum] = answer;
+                
+                if (questionNum < 6) {
+                    showScreen('q' + (questionNum + 1));
+                } else {
+                    showResult();
+                }
+            }
+            
+            function showResult() {
+                var counts = { A: 0, B: 0, C: 0, D: 0 };
+                
+                for (var key in answers) {
+                    var ans = answers[key];
+                    counts[ans]++;
+                }
+                
+                var result = 'misalignment';
+                var maxCount = Math.max(counts.A, counts.B, counts.C, counts.D);
+                
+                if (counts.A === maxCount && counts.B === maxCount || 
+                    counts.A === maxCount && counts.C === maxCount || 
+                    counts.A === maxCount && counts.D === maxCount ||
+                    counts.B === maxCount && counts.C === maxCount ||
+                    counts.B === maxCount && counts.D === maxCount ||
+                    counts.C === maxCount && counts.D === maxCount) {
+                    var q1Answer = answers[1];
+                    if (q1Answer === 'A') result = 'misalignment';
+                    else if (q1Answer === 'B') result = 'overwhelm';
+                    else if (q1Answer === 'C') result = 'avoidance';
+                    else if (q1Answer === 'D') result = 'decisionfog';
+                } else {
+                    if (counts.A === maxCount) result = 'misalignment';
+                    else if (counts.B === maxCount) result = 'overwhelm';
+                    else if (counts.C === maxCount) result = 'avoidance';
+                    else if (counts.D === maxCount) result = 'decisionfog';
+                }
+                
+                showScreen('result-' + result);
+            }
+            
+            quizButton.addEventListener('click', openQuiz);
+            closeBtn.addEventListener('click', closeQuiz);
+            startQuizBtn.addEventListener('click', function() {
+                showScreen('q1');
+            });
+            
+            quizOptions.forEach(function(option) {
+                option.addEventListener('click', function() {
+                    var questionNum = parseInt(this.getAttribute('data-question'));
+                    var answer = this.getAttribute('data-answer');
+                    selectAnswer(questionNum, answer);
+                });
+            });
+        })();
+
+        // Testimonials carousel
+        (function() {
+            var currentSlide = 0;
+            var track = document.getElementById('carouselTrack');
+            var dots = document.querySelectorAll('.dot');
+            
+            function showSlide(index) {
+                currentSlide = index;
+                track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                
+                dots.forEach(function(dot, i) {
+                    if (i === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    var index = parseInt(this.getAttribute('data-index'));
+                    showSlide(index);
+                });
+            });
+            
+            // Auto-rotate every 6 seconds
+            setInterval(function() {
+                var nextSlide = (currentSlide + 1) % 4;
+                showSlide(nextSlide);
+            }, 6000);
+        })();
+    </script>
+</body>
+</html>
